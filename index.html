@@ -7,7 +7,8 @@
   <meta name="description" content="Site oficial do Pedal Cilada, grupo de ciclismo da Vila de Carapajó, em Cametá-PA. Calendário de pedais pelos ramais e pela orla do Tocantins, galeria de fotos e tudo sobre a turma." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.23/dist/lenis.css" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -34,10 +35,11 @@
   <!-- ===== Hero ===== -->
   <section class="hero">
     <div class="hero-bg"></div>
+    <div class="hero-grain"></div>
     <div class="container hero-content">
       <img src="img/Logo.svg" class="hero-logo" alt="Logo Pedal Cilada" />
       <p class="hero-eyebrow">Grupo de ciclismo · desde 09/12/2025</p>
-      <h1 class="hero-title">Pedal <span class="hl">Cilada</span></h1>
+      <h1 class="hero-title hero-headline">Pedal <span class="hl">Cilada</span></h1>
       <p class="hero-sub">O grupo de ciclismo da Vila de Carapajó, em Cametá-PA. Pedalamos pelos ramais, estradas e pela orla do Tocantins — sempre em turma, sempre na resenha.</p>
       <div class="hero-actions">
         <a href="#calendario" class="btn btn-primary">Ver próximos pedais</a>
@@ -49,22 +51,25 @@
         <div class="stat"><span class="stat-num" data-count="4000">0</span><span class="stat-label">km rodados</span></div>
       </div>
     </div>
+    <a href="#sobre" class="hero-scroll" aria-label="Rolar para baixo">
+      <span></span>
+    </a>
   </section>
 
   <!-- ===== Sobre ===== -->
   <section class="section" id="sobre">
     <div class="container">
-      <p class="eyebrow">Sobre o grupo</p>
-      <h2 class="section-title">Nascido na beira do <span class="hl">Tocantins</span></h2>
+      <p class="eyebrow reveal-up">Sobre o grupo</p>
+      <h2 class="section-title section-headline">Nascido na beira do <span class="hl">Tocantins</span></h2>
       <div class="about-grid">
         <div class="about-text">
-          <p>O <strong>Pedal Cilada</strong> começou em dezembro de 2025, quando uns amigos da <strong>Vila de Carapajó</strong> combinaram "um pedalzinho leve" pelos ramais e acabaram em aventuras que renderam história — daí o nome ficou. Somos um grupo pequeno e unido, com gente daqui de Carapajó e da redondeza de Cametá.</p>
-          <p>Aqui no interior do Pará, pedalar tem cheiro de mata, poeira de ramal e brisa do rio. Tem rolê pra todo mundo: do iniciante que tá começando a pegar firmeza até quem encara estrada de terra e sol forte sem reclamar (muito). O combinado é só um: ninguém fica pra trás.</p>
+          <p class="reveal-up">O <strong>Pedal Cilada</strong> começou em dezembro de 2025, quando uns amigos da <strong>Vila de Carapajó</strong> combinaram "um pedalzinho leve" pelos ramais e acabaram em aventuras que renderam história — daí o nome ficou. Somos um grupo pequeno e unido, com gente daqui de Carapajó e da redondeza de Cametá.</p>
+          <p class="reveal-up">Aqui no interior do Pará, pedalar tem cheiro de mata, poeira de ramal e brisa do rio. Tem rolê pra todo mundo: do iniciante que tá começando a pegar firmeza até quem encara estrada de terra e sol forte sem reclamar (muito). O combinado é só um: ninguém fica pra trás.</p>
         </div>
         <ul class="values">
-          <li><span class="value-ic">🤝</span><div><strong>Ninguém fica pra trás</strong><p>A gente respeita o ritmo de cada um. Sempre tem um parceiro pra esperar e dar aquela força na subida.</p></div></li>
-          <li><span class="value-ic">🛡️</span><div><strong>Segurança no ramal</strong><p>Capacete, água e atenção redobrada nas estradas. Voltar bem pra casa é o que mais importa.</p></div></li>
-          <li><span class="value-ic">🌅</span><div><strong>Resenha e açaí</strong><p>Pedal sem parada pro açaí da tarde e a resenha à beira do rio não é pedal de verdade.</p></div></li>
+          <li class="reveal-up"><span class="value-ic">🤝</span><div><strong>Ninguém fica pra trás</strong><p>A gente respeita o ritmo de cada um. Sempre tem um parceiro pra esperar e dar aquela força na subida.</p></div></li>
+          <li class="reveal-up"><span class="value-ic">🛡️</span><div><strong>Segurança no ramal</strong><p>Capacete, água e atenção redobrada nas estradas. Voltar bem pra casa é o que mais importa.</p></div></li>
+          <li class="reveal-up"><span class="value-ic">🌅</span><div><strong>Resenha e açaí</strong><p>Pedal sem parada pro açaí da tarde e a resenha à beira do rio não é pedal de verdade.</p></div></li>
         </ul>
       </div>
     </div>
@@ -73,9 +78,9 @@
   <!-- ===== Calendário ===== -->
   <section class="section section-alt" id="calendario">
     <div class="container">
-      <p class="eyebrow">Agenda</p>
-      <h2 class="section-title">Próximos <span class="hl">pedais</span></h2>
-      <p class="section-lead">Saídas pelos ramais e estradas de Carapajó e Cametá. Marque na agenda e apareça — confirmação de presença pelo grupo do WhatsApp.</p>
+      <p class="eyebrow reveal-up">Agenda</p>
+      <h2 class="section-title section-headline">Próximos <span class="hl">pedais</span></h2>
+      <p class="section-lead reveal-up">Saídas pelos ramais e estradas de Carapajó e Cametá. Marque na agenda e apareça — confirmação de presença pelo grupo do WhatsApp.</p>
 
       <div class="rides" id="rides">
         <!-- cards inseridos via JS -->
@@ -86,9 +91,9 @@
   <!-- ===== Galeria ===== -->
   <section class="section" id="galeria">
     <div class="container">
-      <p class="eyebrow">Galeria</p>
-      <h2 class="section-title">Momentos no <span class="hl">ramal</span></h2>
-      <p class="section-lead">Um gostinho das nossas pedaladas por Carapajó e pela região de Cametá. (Troque as imagens pelas fotos reais do grupo!)</p>
+      <p class="eyebrow reveal-up">Galeria</p>
+      <h2 class="section-title section-headline">Momentos no <span class="hl">ramal</span></h2>
+      <p class="section-lead reveal-up">Um gostinho das nossas pedaladas por Carapajó e pela região de Cametá. (Troque as imagens pelas fotos reais do grupo!)</p>
 
       <div class="gallery" id="gallery">
         <!-- itens inseridos via JS -->
@@ -99,11 +104,11 @@
   <!-- ===== Contato / CTA ===== -->
   <section class="cta" id="contato">
     <div class="container cta-inner">
-      <h2>Bora fazer parte da <span class="hl">cilada</span>?</h2>
-      <p>É de Carapajó, Cametá ou tá de passagem? Chega junto! Entre no nosso grupo e cola no próximo pedal.</p>
-      <div class="cta-actions">
-        <a href="https://wa.me/5500000000000" class="btn btn-primary" target="_blank" rel="noopener">💬 Entrar no WhatsApp</a>
-        <a href="https://www.instagram.com/pedalciladacameta" class="btn btn-ghost" target="_blank" rel="noopener">📸 Seguir no Instagram</a>
+      <h2 class="section-headline">Bora fazer parte da <span class="hl">cilada</span>?</h2>
+      <p class="reveal-up">É de Carapajó, Cametá ou tá de passagem? Chega junto! Entre no nosso grupo e cola no próximo pedal.</p>
+      <div class="cta-actions reveal-up">
+        <a href="https://wa.me/5500000000000" class="btn btn-primary" target="_blank" rel="noopener">Entrar no WhatsApp</a>
+        <a href="https://www.instagram.com/pedalciladacameta" class="btn btn-ghost" target="_blank" rel="noopener">Seguir no Instagram</a>
       </div>
     </div>
   </section>
@@ -116,6 +121,11 @@
     </div>
   </footer>
 
+  <!-- ===== Bibliotecas de animação (com fallback no script.js) ===== -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.3.23/dist/lenis.min.js"></script>
+  <script src="https://unpkg.com/split-type"></script>
   <script src="script.js"></script>
 </body>
 </html>
