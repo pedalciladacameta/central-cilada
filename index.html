@@ -36,6 +36,12 @@
   <section class="hero">
     <div class="hero-bg"></div>
     <div class="hero-grain"></div>
+    <div class="hero-shapes" aria-hidden="true">
+      <span class="shape s1"></span>
+      <span class="shape s2"></span>
+      <span class="shape s3"></span>
+      <span class="shape s4"></span>
+    </div>
     <div class="container hero-content">
       <img src="img/Logo.svg" class="hero-logo" alt="Logo Pedal Cilada" />
       <p class="hero-eyebrow">Grupo de ciclismo · desde 09/12/2025</p>
@@ -67,9 +73,24 @@
           <p class="reveal-up">Aqui no interior do Pará, pedalar tem cheiro de mata, poeira de ramal e brisa do rio. Tem rolê pra todo mundo: do iniciante que tá começando a pegar firmeza até quem encara estrada de terra e sol forte sem reclamar (muito). O combinado é só um: ninguém fica pra trás.</p>
         </div>
         <ul class="values">
-          <li class="reveal-up"><span class="value-ic">🤝</span><div><strong>Ninguém fica pra trás</strong><p>A gente respeita o ritmo de cada um. Sempre tem um parceiro pra esperar e dar aquela força na subida.</p></div></li>
-          <li class="reveal-up"><span class="value-ic">🛡️</span><div><strong>Segurança no ramal</strong><p>Capacete, água e atenção redobrada nas estradas. Voltar bem pra casa é o que mais importa.</p></div></li>
-          <li class="reveal-up"><span class="value-ic">🌅</span><div><strong>Resenha e açaí</strong><p>Pedal sem parada pro açaí da tarde e a resenha à beira do rio não é pedal de verdade.</p></div></li>
+          <li class="reveal-up">
+            <span class="value-ic" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </span>
+            <div><strong>Ninguém fica pra trás</strong><p>A gente respeita o ritmo de cada um. Sempre tem um parceiro pra esperar e dar aquela força na subida.</p></div>
+          </li>
+          <li class="reveal-up">
+            <span class="value-ic" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+            </span>
+            <div><strong>Segurança no ramal</strong><p>Capacete, água e atenção redobrada nas estradas. Voltar bem pra casa é o que mais importa.</p></div>
+          </li>
+          <li class="reveal-up">
+            <span class="value-ic" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v8"/><path d="m4.93 10.93 1.41 1.41"/><path d="M2 18h2"/><path d="M20 18h2"/><path d="m19.07 10.93-1.41 1.41"/><path d="M22 22H2"/><path d="m8 6 4-4 4 4"/><path d="M16 18a4 4 0 0 0-8 0"/></svg>
+            </span>
+            <div><strong>Resenha e açaí</strong><p>Pedal sem parada pro açaí da tarde e a resenha à beira do rio não é pedal de verdade.</p></div>
+          </li>
         </ul>
       </div>
     </div>
@@ -101,8 +122,36 @@
     </div>
   </section>
 
+  <!-- ===== Depoimentos ===== -->
+  <section class="section section-alt" id="depoimentos">
+    <div class="container">
+      <p class="eyebrow reveal-up">A turma fala</p>
+      <h2 class="section-title section-headline">Quem pedala <span class="hl">recomenda</span></h2>
+      <div class="testi" id="testi" aria-roledescription="carrossel">
+        <blockquote class="testi-quote" id="testiQuote"></blockquote>
+        <div class="testi-person">
+          <span class="testi-avatar" id="testiAvatar"></span>
+          <div>
+            <strong class="testi-name" id="testiName"></strong>
+            <span class="testi-role" id="testiRole"></span>
+          </div>
+        </div>
+        <div class="testi-nav">
+          <button class="testi-btn" id="testiPrev" aria-label="Depoimento anterior">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+          </button>
+          <div class="testi-dots" id="testiDots"></div>
+          <button class="testi-btn" id="testiNext" aria-label="Próximo depoimento">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ===== Contato / CTA ===== -->
   <section class="cta" id="contato">
+    <div class="cta-paths" id="ctaPaths" aria-hidden="true"></div>
     <div class="container cta-inner">
       <h2 class="section-headline">Bora fazer parte da <span class="hl">cilada</span>?</h2>
       <p class="reveal-up">É de Carapajó, Cametá ou tá de passagem? Chega junto! Entre no nosso grupo e cola no próximo pedal.</p>

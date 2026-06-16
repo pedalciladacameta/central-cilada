@@ -59,6 +59,8 @@ h1, h2, h3, .logo-text {
 
 ::selection { background: var(--accent); color: var(--accent-ink); }
 
+*:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+
 a { color: inherit; text-decoration: none; }
 img { display: block; max-width: 100%; }
 
@@ -174,7 +176,12 @@ img { display: block; max-width: 100%; }
   transition: transform .4s var(--ease), border-color .4s var(--ease);
 }
 .values li:hover { transform: translateX(6px); border-color: var(--line-strong); }
-.value-ic { font-size: 1.5rem; line-height: 1; }
+.value-ic {
+  display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;
+  width: 46px; height: 46px; border-radius: 13px;
+  background: var(--accent-soft); color: var(--accent);
+}
+.value-ic svg { width: 22px; height: 22px; }
 .values strong { display: block; margin-bottom: .3rem; font-weight: 700; }
 .values p { color: var(--muted); font-size: .95rem; line-height: 1.55; }
 
@@ -239,6 +246,57 @@ img { display: block; max-width: 100%; }
 .footer-wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
 .footer-wrap .logo-img { height: 30px; }
 .footer-wrap p { color: var(--faint); font-size: .88rem; }
+
+/* ===== Formas flutuantes do hero (inspirado em herois.txt) ===== */
+.hero-shapes { position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
+.hero-shapes .shape {
+  position: absolute; border-radius: 999px;
+  background: linear-gradient(90deg, rgba(198,255,58,.12), transparent 80%);
+  border: 1px solid rgba(255,255,255,.06);
+  filter: blur(1px); opacity: 0;
+  animation: shapeIn 2.2s var(--ease) forwards, shapeFloat 13s ease-in-out infinite;
+}
+.shape.s1 { width: 440px; height: 96px; left: -7%; top: 16%; transform: rotate(12deg); animation-delay: .3s, 1s; }
+.shape.s2 { width: 360px; height: 84px; right: -5%; top: 62%; transform: rotate(-15deg); animation-delay: .5s, 1.5s; }
+.shape.s3 { width: 230px; height: 62px; left: 7%; bottom: 9%; transform: rotate(-8deg); animation-delay: .4s, .8s; }
+.shape.s4 { width: 160px; height: 46px; right: 15%; top: 11%; transform: rotate(20deg); animation-delay: .65s, 1.2s; }
+@keyframes shapeIn { to { opacity: 1; } }
+@keyframes shapeFloat { 0%, 100% { translate: 0 0; } 50% { translate: 0 16px; } }
+
+/* ===== Depoimentos (inspirado em depoimentos.txt) ===== */
+.testi { max-width: 760px; margin: 3rem auto 0; text-align: center; }
+.testi-quote {
+  font-family: var(--font-display); font-weight: 500;
+  font-size: clamp(1.3rem, 3.2vw, 2.05rem); line-height: 1.32; letter-spacing: -0.02em;
+}
+.testi-quote .w { display: inline-block; opacity: 0; filter: blur(8px); transform: translateY(6px); transition: opacity .4s var(--ease), filter .4s var(--ease), transform .4s var(--ease); }
+.testi-quote .w.show { opacity: 1; filter: blur(0); transform: none; }
+.testi-person { display: inline-flex; align-items: center; gap: .9rem; margin-top: 2.2rem; text-align: left; }
+.testi-avatar {
+  width: 54px; height: 54px; border-radius: 50%; flex-shrink: 0;
+  background: var(--accent); color: var(--accent-ink);
+  display: inline-flex; align-items: center; justify-content: center;
+  font-family: var(--font-display); font-weight: 800; font-size: 1.15rem;
+}
+.testi-name { display: block; font-weight: 700; }
+.testi-role { color: var(--muted); font-size: .9rem; }
+.testi-nav { display: flex; align-items: center; justify-content: center; gap: 1.3rem; margin-top: 2.2rem; }
+.testi-btn {
+  width: 46px; height: 46px; border-radius: 50%; flex-shrink: 0;
+  border: 1px solid var(--line-strong); background: transparent; color: var(--text);
+  display: inline-flex; align-items: center; justify-content: center; cursor: pointer;
+  transition: background-color .3s var(--ease), color .3s var(--ease), border-color .3s var(--ease), transform .3s var(--ease);
+}
+.testi-btn:hover { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); transform: translateY(-2px); }
+.testi-btn svg { width: 20px; height: 20px; }
+.testi-dots { display: flex; gap: .5rem; }
+.testi-dot { width: 8px; height: 8px; border-radius: 999px; background: var(--line-strong); border: none; padding: 0; cursor: pointer; transition: background-color .3s var(--ease), width .3s var(--ease); }
+.testi-dot.active { background: var(--accent); width: 22px; }
+
+/* ===== Linhas animadas do CTA (inspirado em chamada de ação.txt) ===== */
+.cta-paths { position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; opacity: .45; }
+.cta-paths svg { width: 100%; height: 100%; display: block; }
+.cta-paths path { fill: none; stroke: var(--accent); }
 
 /* ===== Reveal (IntersectionObserver, sem depender de CDN) ===== */
 .reveal-up { opacity: 0; transform: translateY(28px); transition: opacity .7s var(--ease), transform .7s var(--ease); }

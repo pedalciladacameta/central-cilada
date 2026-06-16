@@ -40,6 +40,13 @@ const FOTOS = [
   { src: "https://picsum.photos/seed/cilada8/600/450", cap: "Pôr do sol no ramal" },
 ];
 
+// Depoimentos — EXEMPLOS, troque pelos depoimentos reais da turma
+const DEPOIMENTOS = [
+  { quote: "Entrei achando que não ia aguentar e hoje não perco um pedal. A galera segura a tua mão na subida e ninguém fica pra trás mesmo.", name: "Membro do grupo", role: "Pedala desde 2025" },
+  { quote: "Melhor jeito de conhecer os ramais de Carapajó. Saímos cedo, vemos o sol nascer no Tocantins e ainda tem açaí no fim. É outro nível.", name: "Membro do grupo", role: "Carapajó" },
+  { quote: "Comecei do zero, sem fôlego nenhum. Em poucos meses já encarei a estrada até Cametá. O Pedal Cilada me deu saúde e amizade.", name: "Membro do grupo", role: "Iniciante que evoluiu" },
+];
+
 /* ===== Render calendário ===== */
 const ridesEl = document.getElementById("rides");
 if (ridesEl) {
@@ -71,6 +78,106 @@ if (galleryEl) {
     </figure>
   `).join("");
 }
+
+/* ===== Carrossel de depoimentos ===== */
+(function initTestimonials() {
+  const root = document.getElementById("testi");
+  if (!root || !DEPOIMENTOS.length) return;
+  const elQuote = document.getElementById("testiQuote");
+  const elAvatar = document.getElementById("testiAvatar");
+  const elName = document.getElementById("testiName");
+  const elRole = document.getElementById("testiRole");
+  const elDots = document.getElementById("testiDots");
+  const btnPrev = document.getElementById("testiPrev");
+  const btnNext = document.getElementById("testiNext");
+
+  let idx = 0;
+  let timer = null;
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  const initials = (name) => name.trim().split(/\s+/).slice(0, 2).map(w => w[0]).join("").toUpperCase();
+
+  // Dots
+  DEPOIMENTOS.forEach((_, i) => {
+    const dot = document.createElement("button");
+    dot.className = "testi-dot" + (i === 0 ? " active" : "");
+    dot.setAttribute("aria-label", "Ir para o depoimento " + (i + 1));
+    dot.addEventListener("click", () => { show(i); restart(); });
+    elDots.appendChild(dot);
+  });
+
+  function show(i) {
+    idx = (i + DEPOIMENTOS.length) % DEPOIMENTOS.length;
+    const d = DEPOIMENTOS[idx];
+    // Aspas em palavras (revelação com blur)
+    elQuote.innerHTML = ("“" + d.quote + "”").split(" ")
+      .map(w => `<span class="w">${w}&nbsp;</span>`).join("");
+    elName.textContent = d.name;
+    elRole.textContent = d.role;
+    elAvatar.textContent = initials(d.name);
+    elDots.querySelectorAll(".testi-dot").forEach((dot, j) => dot.classList.toggle("active", j === idx));
+
+    const words = elQuote.querySelectorAll(".w");
+    words.forEach((w, j) => {
+      if (reduce) { w.classList.add("show"); return; }
+      setTimeout(() => w.classList.add("show"), 24 * j);
+    });
+  }
+
+  function next() { show(idx + 1); }
+  function prev() { show(idx - 1); }
+  function restart() { if (timer) { clearInterval(timer); start(); } }
+  function start() { if (!reduce) timer = setInterval(next, 6500); }
+
+  btnNext.addEventListener("click", () => { next(); restart(); });
+  btnPrev.addEventListener("click", () => { prev(); restart(); });
+  root.addEventListener("mouseenter", () => timer && clearInterval(timer));
+  root.addEventListener("mouseleave", () => start());
+
+  show(0);
+  start();
+})();
+
+/* ===== Linhas animadas de fundo no CTA ===== */
+(function initCtaPaths() {
+  const host = document.getElementById("ctaPaths");
+  if (!host) return;
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const small = window.matchMedia("(max-width: 768px)").matches;
+  const count = small ? 10 : 18;
+  const svgNS = "http://www.w3.org/2000/svg";
+  const svg = document.createElementNS(svgNS, "svg");
+  svg.setAttribute("viewBox", "0 0 696 316");
+  svg.setAttribute("fill", "none");
+  svg.setAttribute("preserveAspectRatio", "xMidYMid slice");
+
+  [1, -1].forEach(position => {
+    for (let i = 0; i < count; i++) {
+      const p = document.createElementNS(svgNS, "path");
+      const d = `M-${380 - i * 5 * position} -${189 + i * 6}C-${380 - i * 5 * position} -${189 + i * 6} -${312 - i * 5 * position} ${216 - i * 6} ${152 - i * 5 * position} ${343 - i * 6}C${616 - i * 5 * position} ${470 - i * 6} ${684 - i * 5 * position} ${875 - i * 6} ${684 - i * 5 * position} ${875 - i * 6}`;
+      p.setAttribute("d", d);
+      p.setAttribute("stroke-width", (0.5 + i * 0.05).toFixed(2));
+      p.setAttribute("stroke-opacity", (0.1 + i * 0.04).toFixed(2));
+      svg.appendChild(p);
+    }
+  });
+  host.appendChild(svg);
+
+  if (!reduce) {
+    svg.querySelectorAll("path").forEach(p => {
+      const len = p.getTotalLength();
+      p.style.strokeDasharray = len;
+      p.animate(
+        [
+          { strokeDashoffset: len, opacity: 0.25 },
+          { strokeDashoffset: 0, opacity: 0.6, offset: 0.5 },
+          { strokeDashoffset: -len, opacity: 0.25 }
+        ],
+        { duration: 18000 + Math.random() * 9000, iterations: Infinity, easing: "linear" }
+      );
+    });
+  }
+})();
 
 /* ===== Menu mobile ===== */
 const toggle = document.getElementById("navToggle");
