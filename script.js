@@ -1,33 +1,5 @@
 /* ===== Dados — edite aqui pra atualizar o site ===== */
 
-// Próximos pedais. nivel: "iniciante" | "intermediário" | "avançado"
-const PEDAIS = [
-  {
-    dia: "21", mes: "Jun", titulo: "Pedal do Amanhecer",
-    hora: "05:30", local: "Orla de Carapajó", distancia: "25 km",
-    nivel: "iniciante",
-    desc: "Saída cedinho pra ver o sol nascer no Tocantins. Ritmo leve, perfeito pra quem tá começando."
-  },
-  {
-    dia: "28", mes: "Jun", titulo: "Ramal Adentro",
-    hora: "06:00", local: "Saída da Vila de Carapajó", distancia: "45 km",
-    nivel: "avançado",
-    desc: "Ramais de terra mata adentro, sol forte e poeira. Leve bastante água e disposição extra."
-  },
-  {
-    dia: "05", mes: "Jul", titulo: "Carapajó × Cametá",
-    hora: "06:30", local: "Centro de Carapajó", distancia: "38 km",
-    nivel: "intermediário",
-    desc: "Percurso pela estrada até a cidade de Cametá, com parada pro açaí e a resenha na volta."
-  },
-  {
-    dia: "12", mes: "Jul", titulo: "Pedal Noturno na Vila",
-    hora: "19:00", local: "Praça de Carapajó", distancia: "18 km",
-    nivel: "iniciante",
-    desc: "Volta tranquila pela vila à noite. Obrigatório farol e luz traseira. Bora iluminar o ramal!"
-  },
-];
-
 // Galeria — troque os 'src' pelas fotos reais (ex.: imagens em img/)
 const FOTOS = [
   { src: "https://picsum.photos/seed/cilada1/600/450", cap: "Amanhecer na orla" },
@@ -46,27 +18,6 @@ const DEPOIMENTOS = [
   { quote: "Melhor jeito de conhecer os ramais de Carapajó. Saímos cedo, vemos o sol nascer no Tocantins e ainda tem açaí no fim. É outro nível.", name: "Membro do grupo", role: "Carapajó" },
   { quote: "Comecei do zero, sem fôlego nenhum. Em poucos meses já encarei a estrada até Cametá. O Pedal Cilada me deu saúde e amizade.", name: "Membro do grupo", role: "Iniciante que evoluiu" },
 ];
-
-/* ===== Render calendário ===== */
-const ridesEl = document.getElementById("rides");
-if (ridesEl) {
-  ridesEl.innerHTML = PEDAIS.map(p => `
-    <article class="ride-card reveal-up">
-      <div class="ride-head">
-        <div class="ride-date"><span class="d">${p.dia}</span><span class="m">${p.mes}</span></div>
-        <div>
-          <h3>${p.titulo}</h3>
-          <span class="ride-time">${p.hora} · ${p.local}</span>
-        </div>
-      </div>
-      <div class="ride-meta">
-        <span class="tag lvl lvl-${p.nivel}">${p.nivel}</span>
-        <span class="tag">${p.distancia}</span>
-      </div>
-      <p class="ride-desc">${p.desc}</p>
-    </article>
-  `).join("");
-}
 
 /* ===== Render galeria ===== */
 const galleryEl = document.getElementById("gallery");
