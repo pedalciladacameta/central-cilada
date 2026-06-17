@@ -1,15 +1,27 @@
 /* ===== Dados — edite aqui pra atualizar o site ===== */
 
-// Galeria — troque os 'src' pelas fotos reais (ex.: imagens em img/)
+// Galeria — fotos reais do grupo (em img/)
 const FOTOS = [
-  { src: "https://picsum.photos/seed/cilada1/600/450", cap: "Amanhecer na orla" },
-  { src: "https://picsum.photos/seed/cilada2/600/450", cap: "Ramal adentro" },
-  { src: "https://picsum.photos/seed/cilada3/600/450", cap: "Parada pro açaí" },
-  { src: "https://picsum.photos/seed/cilada4/600/450", cap: "Turma reunida em Carapajó" },
-  { src: "https://picsum.photos/seed/cilada5/600/450", cap: "Beira do Tocantins" },
-  { src: "https://picsum.photos/seed/cilada6/600/450", cap: "Pedal noturno na vila" },
-  { src: "https://picsum.photos/seed/cilada7/600/450", cap: "Rumo a Cametá" },
-  { src: "https://picsum.photos/seed/cilada8/600/450", cap: "Pôr do sol no ramal" },
+  // Os primeiros pedais — encontros que fizeram o grupo nascer
+  { src: "img/1/1.jpeg", cap: "Onde tudo começou" },
+  { src: "img/1/2.jpeg", cap: "Os primeiros encontros" },
+  { src: "img/1/3.jpeg", cap: "O nascimento da Cilada" },
+  // Pedais para Mocajuba — ida e volta, +100 km
+  { src: "img/2/1.jpeg", cap: "Rumo a Mocajuba" },
+  { src: "img/2/2.jpeg", cap: "Na estrada pra Mocajuba" },
+  { src: "img/2/3.jpeg", cap: "+100 km até Mocajuba" },
+  { src: "img/2/4.jpeg", cap: "Ida e volta a Mocajuba" },
+  { src: "img/2/5.jpeg", cap: "Pedalão de Mocajuba" },
+  // Mais pedais que acontecem
+  { src: "img/3/4.jpeg", cap: "Mais um pedal da turma" },
+  { src: "img/3/5.jpeg", cap: "Cilada na estrada" },
+  { src: "img/3/6.jpeg", cap: "Pedal em grupo" },
+  { src: "img/3/7.jpeg", cap: "Na trilha com a galera" },
+  { src: "img/3/8.jpeg", cap: "Mais quilômetros juntos" },
+  { src: "img/3/9.jpeg", cap: "Pedalando pela região" },
+  { src: "img/3/10.jpeg", cap: "A turma reunida" },
+  { src: "img/3/11.jpeg", cap: "Sempre em movimento" },
+  { src: "img/3/12.jpeg", cap: "Rolê de bike com os parceiros" },
 ];
 
 // Depoimentos — EXEMPLOS, troque pelos depoimentos reais da turma
