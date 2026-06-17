@@ -247,6 +247,14 @@ img { display: block; max-width: 100%; }
 }
 .gallery-item:hover .cap { opacity: 1; transform: translateY(0); }
 
+/* ===== Galeria em módulos/álbuns ===== */
+.albuns { display: flex; flex-direction: column; gap: 3.5rem; margin-top: 3rem; }
+.album-head { display: flex; align-items: baseline; gap: .8rem; flex-wrap: wrap; }
+.album-title { font-size: clamp(1.3rem, 3.2vw, 1.85rem); font-weight: 700; }
+.album-count { font-size: .76rem; color: var(--faint); text-transform: uppercase; letter-spacing: .14em; font-weight: 700; }
+.album-desc { color: var(--muted); margin: .45rem 0 1.4rem; font-size: 1rem; }
+.album-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1rem; }
+
 /* ===== CTA ===== */
 .cta { padding-block: 88px; background: var(--bg-elevated); border-block: 1px solid var(--line); position: relative; overflow: hidden; }
 .cta::before { content: ""; position: absolute; inset: 0; background: radial-gradient(50% 120% at 50% 0%, var(--accent-soft), transparent 70%); }

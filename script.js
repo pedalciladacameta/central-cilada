@@ -1,27 +1,42 @@
 /* ===== Dados — edite aqui pra atualizar o site ===== */
 
-// Galeria — fotos reais do grupo (em img/)
-const FOTOS = [
-  // Os primeiros pedais — encontros que fizeram o grupo nascer
-  { src: "img/1/1.jpeg", cap: "Onde tudo começou" },
-  { src: "img/1/2.jpeg", cap: "Os primeiros encontros" },
-  { src: "img/1/3.jpeg", cap: "O nascimento da Cilada" },
-  // Pedais para Mocajuba — ida e volta, +100 km
-  { src: "img/2/1.jpeg", cap: "Rumo a Mocajuba" },
-  { src: "img/2/2.jpeg", cap: "Na estrada pra Mocajuba" },
-  { src: "img/2/3.jpeg", cap: "+100 km até Mocajuba" },
-  { src: "img/2/4.jpeg", cap: "Ida e volta a Mocajuba" },
-  { src: "img/2/5.jpeg", cap: "Pedalão de Mocajuba" },
-  // Mais pedais que acontecem
-  { src: "img/3/4.jpeg", cap: "Mais um pedal da turma" },
-  { src: "img/3/5.jpeg", cap: "Cilada na estrada" },
-  { src: "img/3/6.jpeg", cap: "Pedal em grupo" },
-  { src: "img/3/7.jpeg", cap: "Na trilha com a galera" },
-  { src: "img/3/8.jpeg", cap: "Mais quilômetros juntos" },
-  { src: "img/3/9.jpeg", cap: "Pedalando pela região" },
-  { src: "img/3/10.jpeg", cap: "A turma reunida" },
-  { src: "img/3/11.jpeg", cap: "Sempre em movimento" },
-  { src: "img/3/12.jpeg", cap: "Rolê de bike com os parceiros" },
+// Galeria em módulos — cada álbum é uma pasta de fotos (em img/)
+const ALBUNS = [
+  {
+    titulo: "Os primeiros pedais",
+    desc: "Os encontros que fizeram o grupo nascer.",
+    fotos: [
+      { src: "img/1/1.jpeg", cap: "Onde tudo começou" },
+      { src: "img/1/2.jpeg", cap: "Os primeiros encontros" },
+      { src: "img/1/3.jpeg", cap: "O nascimento da Cilada" },
+    ]
+  },
+  {
+    titulo: "Pedalão a Mocajuba",
+    desc: "Ida e volta saindo de Carapajó — mais de 100 km na estrada.",
+    fotos: [
+      { src: "img/2/1.jpeg", cap: "Rumo a Mocajuba" },
+      { src: "img/2/2.jpeg", cap: "Na estrada pra Mocajuba" },
+      { src: "img/2/3.jpeg", cap: "+100 km de pedalada" },
+      { src: "img/2/4.jpeg", cap: "Ida e volta a Mocajuba" },
+      { src: "img/2/5.jpeg", cap: "Pedalão de Mocajuba" },
+    ]
+  },
+  {
+    titulo: "Mais pedais",
+    desc: "A turma sempre na ativa pelos caminhos da região.",
+    fotos: [
+      { src: "img/3/4.jpeg", cap: "Mais um pedal da turma" },
+      { src: "img/3/5.jpeg", cap: "Cilada na estrada" },
+      { src: "img/3/6.jpeg", cap: "Pedal em grupo" },
+      { src: "img/3/7.jpeg", cap: "Na trilha com a galera" },
+      { src: "img/3/8.jpeg", cap: "Mais quilômetros juntos" },
+      { src: "img/3/9.jpeg", cap: "Pedalando pela região" },
+      { src: "img/3/10.jpeg", cap: "A turma reunida" },
+      { src: "img/3/11.jpeg", cap: "Sempre em movimento" },
+      { src: "img/3/12.jpeg", cap: "Rolê de bike com os parceiros" },
+    ]
+  },
 ];
 
 // Depoimentos — EXEMPLOS, troque pelos depoimentos reais da turma
@@ -31,14 +46,24 @@ const DEPOIMENTOS = [
   { quote: "Comecei do zero, sem fôlego nenhum. Em poucos meses já encarei a estrada até Cametá. O Pedal Cilada me deu saúde e amizade.", name: "Membro do grupo", role: "Iniciante que evoluiu" },
 ];
 
-/* ===== Render galeria ===== */
+/* ===== Render galeria (módulos/álbuns) ===== */
 const galleryEl = document.getElementById("gallery");
 if (galleryEl) {
-  galleryEl.innerHTML = FOTOS.map(f => `
-    <figure class="gallery-item reveal-up">
-      <img src="${f.src}" alt="${f.cap}" loading="lazy" />
-      <figcaption class="cap">${f.cap}</figcaption>
-    </figure>
+  galleryEl.innerHTML = ALBUNS.map(a => `
+    <div class="album reveal-up">
+      <div class="album-head">
+        <h3 class="album-title">${a.titulo}</h3>
+        <span class="album-count">${a.fotos.length} fotos</span>
+      </div>
+      <p class="album-desc">${a.desc}</p>
+      <div class="album-grid">
+        ${a.fotos.map(f => `
+        <figure class="gallery-item">
+          <img src="${f.src}" alt="${f.cap}" loading="lazy" />
+          <figcaption class="cap">${f.cap}</figcaption>
+        </figure>`).join("")}
+      </div>
+    </div>
   `).join("");
 }
 
